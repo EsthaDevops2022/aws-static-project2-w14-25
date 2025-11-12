@@ -36,7 +36,13 @@ jobs:
 
       - name: Upload files to S3
         run: |
-          aws s3 cp . s3://project2.esthadevops.com/ --recursive    
+          aws s3 cp . s3://project2.esthadevops.com/ --recursive 
+
+      - name: Invalidate CloudFront cache
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION_ID: EORB6RPYI1R7H
+          PATHS: "/*"    
 
       #- name: Sync files to S3 bucket
       #  run: |
