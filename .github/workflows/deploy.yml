@@ -42,7 +42,8 @@ jobs:
         uses: chetan/invalidate-cloudfront-action@v2
         with:
           distribution: EORB6RPYI1R7H
-          paths: "/*"    
+          paths: |
+            $(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | sed 's/^/\//')    
 
       #- name: Sync files to S3 bucket
       #  run: |
