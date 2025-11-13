@@ -41,8 +41,8 @@ jobs:
       - name: Invalidate CloudFront cache
         uses: chetan/invalidate-cloudfront-action@v2
         with:
-          DISTRIBUTION: EORB6RPYI1R7H
-          PATHS: "/*"    
+          distribution: EORB6RPYI1R7H
+          paths: "/*"    
 
       #- name: Sync files to S3 bucket
       #  run: |
