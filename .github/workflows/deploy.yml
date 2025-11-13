@@ -40,7 +40,7 @@ jobs:
 
       - name: Invalidate CloudFront cache
         uses: chetan/invalidate-cloudfront-action@v2
-        env:
+        with:
           DISTRIBUTION_ID: EORB6RPYI1R7H
           PATHS: "/*"    
 
