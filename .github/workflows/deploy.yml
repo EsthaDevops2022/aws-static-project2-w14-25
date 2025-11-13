@@ -40,10 +40,9 @@ jobs:
 
       - name: Invalidate CloudFront cache
         uses: chetan/invalidate-cloudfront-action@v2
-        with:
-          distribution: EORB6RPYI1R7H
-          paths: |
-            $(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | sed 's/^/\//')    
+        env:
+          DISTRIBUTION: EORB6RPYI1R7H
+          PATHS: '/*'    
 
       #- name: Sync files to S3 bucket
       #  run: |
